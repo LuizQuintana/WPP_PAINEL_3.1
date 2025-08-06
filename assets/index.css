@@ -6,17 +6,20 @@ body {
 
 /* Contêiner principal */
 #container {
-    padding: 1rem; /* Base padding for mobile */
+    padding: 1rem;
+    /* Base padding for mobile */
 }
-.main-content{
-margin-left: 0px !important;
+
+.main-content {
+    margin-left: 0px !important;
 }
+
 .conteudos {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100% !important;
-float: rigth;
+    float: right !important;
 }
 
 /* Seção geral das réguas */
@@ -24,7 +27,7 @@ float: rigth;
     display: flex;
     flex-direction: column;
     gap: 30px;
-width: 80% !important;
+    width: 85% !important;
 }
 
 /* Estilo das seções de régua */
@@ -38,7 +41,8 @@ width: 80% !important;
 
 /* Títulos das seções */
 .reguas p {
-    font-size: 1.4rem; /* Adjusted for mobile */
+    font-size: 1.4rem;
+    /* Adjusted for mobile */
     font-weight: 600;
     margin-bottom: 20px;
     color: #ffffff;
@@ -49,7 +53,8 @@ width: 80% !important;
 /* Carrossel */
 #carouselReguas {
     position: relative;
-    padding-bottom: 70px; /* Espaço para os botões abaixo */
+    padding-bottom: 70px;
+    /* Espaço para os botões abaixo */
 }
 
 #carouselReguas .carousel-inner {
@@ -61,7 +66,8 @@ width: 80% !important;
     border: none;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Ensure cards have same height */
+    height: 100%;
+    /* Ensure cards have same height */
 }
 
 #carouselReguas .card:hover {
@@ -86,17 +92,20 @@ width: 80% !important;
     background-color: rgba(52, 152, 219, 0.7) !important;
     border-radius: 50%;
     position: absolute;
-    bottom: 10px; /* Position at the bottom of the relative container */
+    bottom: 10px;
+    /* Position at the bottom of the relative container */
     top: 90% !important;
     transform: translateY(0);
 }
 
 .carousel-control-prev {
-    left: calc(50% - 50px); /* Position left of center */
+    left: calc(50% - 50px);
+    /* Position left of center */
 }
 
 .carousel-control-next {
-    right: calc(50% - 50px); /* Position right of center */
+    right: calc(50% - 50px);
+    /* Position right of center */
 }
 
 .carousel-control-prev:hover,
@@ -148,10 +157,12 @@ h4 {
 /* Tablet */
 @media (min-width: 768px) {
     .conteudos {
-        flex-direction: row; /* Side-by-side layout for larger screens */
+        flex-direction: row;
+        /* Side-by-side layout for larger screens */
     }
 
-    #regua, #regua_criar {
+    #regua,
+    #regua_criar {
         flex: 1;
     }
 
@@ -163,8 +174,8 @@ h4 {
 /* Desktop */
 @media (min-width: 992px) {
     .conteudos {
-        margin-left: 14%; /* Re-apply margin for desktop sidebar */
+        margin-left: 14%;
+        /* Re-apply margin for desktop sidebar */
         width: 86%;
     }
 }
-

@@ -26,71 +26,71 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <body>
 
     <!-- Botão de Toggle para Mobile -->
-    <button class="sidebar-toggle-btn" id="sidebarToggleBtn">
+    <button class="wpp-header-sidebar-toggle-btn" id="sidebarToggleBtn">
         <i class="fas fa-bars"></i>
     </button>
 
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <h4 class="sidebar-title">SendNow 2.0</h4>
+    <div class="wpp-header-sidebar" id="sidebar">
+        <h4 class="wpp-header-sidebar-title">SendNow 2.0</h4>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a href="index.php" class="nav-link <?= ($currentPage == 'index.php') ? 'active' : '' ?>">
+                <a href="index.php" class="wpp-header-nav-link <?= ($currentPage == 'index.php') ? 'active' : '' ?>">
                     <i class="fas fa-home me-2"></i> Início
                 </a>
             </li>
             <li class="nav-item">
-                <a href="envios.php" class="nav-link <?= ($currentPage == 'envios.php') ? 'active' : '' ?>">
+                <a href="envios.php" class="wpp-header-nav-link <?= ($currentPage == 'envios.php') ? 'active' : '' ?>">
                     <i class="fas fa-file-invoice-dollar me-2"></i> Envios
                 </a>
             </li>
             <li class="nav-item">
-                <a href="gerenciar_modelos.php" class="nav-link <?= ($currentPage == 'gerenciar_modelos.php') ? 'active' : '' ?>">
+                <a href="gerenciar_modelos.php" class="wpp-header-nav-link <?= ($currentPage == 'gerenciar_modelos.php') ? 'active' : '' ?>">
                     <i class="fas fa-envelope-open-text me-2"></i> Gerenciar Modelos
                 </a>
             </li>
             <li class="nav-item">
-                <a href="cron_rules.php" class="nav-link <?= ($currentPage == 'cron_rules.php') ? 'active' : '' ?>">
+                <a href="cron_rules.php" class="wpp-header-nav-link <?= ($currentPage == 'cron_rules.php') ? 'active' : '' ?>">
                     <i class="fas fa-paper-plane me-2"></i> Agendamento de Envio
                 </a>
             </li>
             <li class="nav-item">
-                <a href="canais.php" class="nav-link <?= ($currentPage == 'canais.php') ? 'active' : '' ?>">
+                <a href="canais.php" class="wpp-header-nav-link <?= ($currentPage == 'canais.php') ? 'active' : '' ?>">
                     <i class="fas fa-paper-plane me-2"></i> Canais
                 </a>
             </li>
             <li class="nav-item">
-                <a href="respostas.php" class="nav-link <?= ($currentPage == 'respostas.php') ? 'active' : '' ?>">
+                <a href="respostas.php" class="wpp-header-nav-link <?= ($currentPage == 'respostas.php') ? 'active' : '' ?>">
                     <i class="fas fa-inbox me-2"></i> Caixa de Entrada
                 </a>
             </li>
             <li class="nav-item">
-                <a href="gerenciar_workflows.php" class="nav-link <?= ($currentPage == 'gerenciar_workflows.php') ? 'active' : '' ?>">
+                <a href="gerenciar_workflows.php" class="wpp-header-nav-link <?= ($currentPage == 'gerenciar_workflows.php') ? 'active' : '' ?>">
                     <i class="fas fa-cogs me-2"></i> Gerenciar Workflows
                 </a>
             </li>
             <li class="nav-item">
-                <a href="gerenciar_integracoes.php" class="nav-link <?= ($currentPage == 'gerenciar_integracoes.php') ? 'active' : '' ?>">
+                <a href="gerenciar_integracoes.php" class="wpp-header-nav-link <?= ($currentPage == 'gerenciar_integracoes.php') ? 'active' : '' ?>">
                     <i class="fas fa-plug me-2"></i> Gerenciar Integrações
                 </a>
             </li>
             <li class="nav-item">
-                <a href="sincronizar_sessoes.php" class="nav-link <?= ($currentPage == 'sincronizar_sessoes.php') ? 'active' : '' ?>" target="_blank">
+                <a href="#" class="wpp-header-nav-link <?= ($currentPage == 'sincronizar_sessoes.php') ? 'active' : '' ?>" data-bs-toggle="modal" data-bs-target="#syncModal" data-sync-url="sincronizar_sessoes.php">
                     <i class="fas fa-sync me-2"></i> Sincronizar Sessões
                 </a>
             </li>
             <li class="nav-item">
-                <a href="view_logs.php" class="nav-link <?= ($currentPage == 'view_logs.php') ? 'active' : '' ?>">
+                <a href="view_logs.php" class="wpp-header-nav-link <?= ($currentPage == 'view_logs.php') ? 'active' : '' ?>">
                     <i class="fas fa-cogs me-2"></i> Gerenciar Logs
                 </a>
             </li>
             <li class="nav-item">
-                <a href="logs.php" class="nav-link <?= ($currentPage == 'logs.php') ? 'active' : '' ?>">
+                <a href="logs.php" class="wpp-header-nav-link <?= ($currentPage == 'logs.php') ? 'active' : '' ?>">
                     <i class="fas fa-file-alt me-2"></i> Logs
                 </a>
             </li>
             <li class="nav-item">
-                <a href="logout.php" class="nav-link">
+                <a href="logout.php" class="wpp-header-nav-link">
                     <i class="fas fa-sign-out-alt me-2"></i> Sair
                 </a>
             </li>
@@ -98,7 +98,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     </div>
 
     <!-- Conteúdo principal -->
-    <div class="header-main-content" id="mainContent">
+    <div class="wpp-header-main-content" id="mainContent">
         <!-- O conteúdo da sua página será renderizado aqui -->
     </div>
 
@@ -125,8 +125,53 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     }
                 }
             });
+
+            // Script para carregar conteúdo no modal
+            var syncModal = document.getElementById('syncModal');
+            if (syncModal) {
+                syncModal.addEventListener('show.bs.modal', function (event) {
+                    var button = event.relatedTarget; // Botão que acionou o modal
+                    var syncUrl = button.getAttribute('data-sync-url');
+                    var modalBody = syncModal.querySelector('.modal-body');
+
+                    // Limpa o conteúdo anterior
+                    modalBody.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+
+                    // Carrega o conteúdo da URL no corpo do modal
+                    fetch(syncUrl)
+                        .then(response => response.text())
+                        .then(data => {
+                            modalBody.innerHTML = data;
+                        })
+                        .catch(error => {
+                            modalBody.innerHTML = '<p class="text-danger">Erro ao carregar o conteúdo: ' + error + '</p>';
+                            console.error('Erro ao carregar o conteúdo do modal:', error);
+                        });
+                });
+            }
         });
     </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modal de Sincronização -->
+    <div class="modal fade" id="syncModal" tabindex="-1" aria-labelledby="syncModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="syncModalLabel">Sincronizar Sessões</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Conteúdo de sincronizar_sessoes.php será carregado aqui -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

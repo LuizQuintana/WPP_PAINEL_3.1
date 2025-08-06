@@ -634,7 +634,7 @@ try {
 
     // Busca todas as réguas que estão marcadas como "Ativo" no banco de dados
     $sqlReguas = "SELECT id, nome, intervalo, hora, modelo_mensagem, TIPO_DE_MODELO, Session_WPP 
-                  FROM REGUAS_CRIADAS WHERE status = 'Ativo'";
+                FROM REGUAS_CRIADAS WHERE status = 'Ativo'";
     $stmtReguas = $conn->query($sqlReguas);
     $reguasAtivas = $stmtReguas->fetchAll(PDO::FETCH_ASSOC);
 

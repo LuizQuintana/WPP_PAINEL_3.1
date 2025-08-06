@@ -6,52 +6,61 @@ if (!isset($_SESSION['user_user'])) {
     exit;
 }
 
-// Scan for log files in the storage directory
-// Diretórios onde buscar os logs
-$logDirs = [__DIR__ . '/storage/', '/var/logs/'];
+$logDir = __DIR__ . '/storage/';
 $logFiles = [];
 $logGroups = [];
 
-foreach ($logDirs as $logDir) {
-    if (is_dir($logDir)) {
-        if ($handle = opendir($logDir)) {
-            while (false !== ($entry = readdir($handle))) {
-                if (preg_match('/^(.*)\.log$/', $entry, $matches)) {
-                    $baseName = $matches[1];
-                    $groupName = $baseName;
-                    if (preg_match('/^(.*?)_(\d{4}-\d{2}-\d{2})$/', $baseName, $dateMatches)) {
-                        $groupName = $dateMatches[1];
-                    }
-                    if (!in_array($groupName, $logGroups)) {
-                        $logGroups[] = $groupName;
-                    }
-                    // Salva o nome do arquivo com seu caminho completo
-                    $logFiles[$entry] = $logDir . $entry;
-                }
+if (is_dir($logDir)) {
+    $entries = scandir($logDir);
+    foreach ($entries as $entry) {
+        if (is_file($logDir . $entry) && preg_match('/^(.*)\.log$/', $entry, $matches)) {
+            $baseName = $matches[1];
+
+            if (preg_match('/^(.*?)_(\d{4}-\d{2}-\d{2})$/', $baseName, $dateMatches)) {
+                $group = $dateMatches[1];
+                $date = $dateMatches[2];
+            } else {
+                $group = $baseName;
+                $date = '';
             }
-            closedir($handle);
+
+            if (!isset($logGroups[$group])) {
+                $logGroups[$group] = [];
+            }
+
+            $logGroups[$group][$date] = $entry;
+            $logFiles[$entry] = $logDir . $entry;
         }
     }
 }
 
+ksort($logGroups); // ordena grupos por nome
+
 $selectedGroup = $_GET['log_group'] ?? '';
-$logDate = $_GET['log_date'] ?? '';
+$selectedDate = $_GET['log_date'] ?? '';
 $content = '';
 $fileName = '';
 
 if ($selectedGroup) {
-    $fileName = $selectedGroup . '.log';
-    if ($logDate) {
-        $fileName = $selectedGroup . '_' . $logDate . '.log';
-    }
+    if (isset($logGroups[$selectedGroup])) {
+        // Se houver data, tenta localizar o arquivo específico
+        if ($selectedDate && isset($logGroups[$selectedGroup][$selectedDate])) {
+            $fileName = $logGroups[$selectedGroup][$selectedDate];
+        } elseif (isset($logGroups[$selectedGroup][''])) {
+            // Sem data, mas com arquivo sem data
+            $fileName = $logGroups[$selectedGroup][''];
+        } else {
+            // Pega o mais recente com data (último do array)
+            $fileName = end($logGroups[$selectedGroup]);
+        }
 
-    if (isset($logFiles[$fileName]) && file_exists($logFiles[$fileName])) {
-        $content = file_get_contents($logFiles[$fileName]);
-    } else {
-        $content = "Arquivo de log não encontrado: " . htmlspecialchars($fileName);
+        if (isset($logFiles[$fileName]) && file_exists($logFiles[$fileName])) {
+            $content = file_get_contents($logFiles[$fileName]);
+        } else {
+            $content = "Arquivo de log não encontrado: " . htmlspecialchars($fileName);
+        }
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -72,14 +81,16 @@ if ($selectedGroup) {
             width: calc(100% - 260px);
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #3498db;
             margin-bottom: 15px;
             border-bottom: 1px solid #444;
             padding-bottom: 5px;
         }
 
-        select, button, input[type="date"] {
+        select,
+        button {
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
@@ -89,7 +100,8 @@ if ($selectedGroup) {
             cursor: pointer;
         }
 
-        select:focus, button:focus, input[type="date"]:focus {
+        select:focus,
+        button:focus {
             outline: none;
             border-color: #3498db;
             box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
@@ -127,10 +139,17 @@ if ($selectedGroup) {
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        #titulonew {
+            text-align: center;
+            padding-top: 20px;
+            color: #00e676;
         }
 
         .main-contentnew {
-            margin-left: 8% !important;
+            margin-left: 8%;
         }
     </style>
 </head>
@@ -140,24 +159,37 @@ if ($selectedGroup) {
         <div id="titulonew">
             <h4><i class="fab fa-whatsapp"></i> SendNow 2.0</h4>
         </div>
+
         <?php include_once 'header.php'; ?>
+
         <div class="main-contentnew">
             <div class="container-fluidnew mt-4">
                 <div class="log-container-mainnew">
                     <h1>Visualizador de Logs</h1>
                     <form method="get">
-                        <label for="log_group">Selecione o arquivo de log:</label>
+                        <label for="log_group">Grupo:</label>
                         <select name="log_group" id="log_group" onchange="this.form.submit()">
-                            <option value="">-- Escolha um grupo de log --</option>
-                            <?php foreach ($logGroups as $group): ?>
+                            <option value="">-- Escolha um grupo --</option>
+                            <?php foreach (array_keys($logGroups) as $group): ?>
                                 <option value="<?= htmlspecialchars($group) ?>" <?= $selectedGroup === $group ? 'selected' : '' ?>>
                                     <?= htmlspecialchars($group) ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
 
-                        <label for="log_date">Selecione a data (opcional):</label>
-                        <input type="date" name="log_date" id="log_date" value="<?= htmlspecialchars($logDate) ?>" onchange="this.form.submit()">
+                        <?php if ($selectedGroup && isset($logGroups[$selectedGroup])): ?>
+                            <label for="log_date">Data:</label>
+                            <select name="log_date" id="log_date" onchange="this.form.submit()">
+                                <option value="">-- Última disponível --</option>
+                                <?php foreach ($logGroups[$selectedGroup] as $date => $filename): ?>
+                                    <?php if ($date): ?>
+                                        <option value="<?= $date ?>" <?= $selectedDate === $date ? 'selected' : '' ?>>
+                                            <?= $date ?>
+                                        </option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
+                        <?php endif; ?>
 
                         <button type="submit">Ver log</button>
                     </form>
