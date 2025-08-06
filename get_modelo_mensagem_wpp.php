@@ -28,13 +28,19 @@ try {
     }
 
     if ($modeloEncontrado) {
+        // Decodifica o JSON do campo 'conteudo'
+        $conteudoDecodificado = json_decode($modeloEncontrado['conteudo'], true);
+
+        // Pega o texto do corpo da mensagem, ou um texto padrão se não existir
+        $textoBody = isset($conteudoDecodificado['body']) ? $conteudoDecodificado['body'] : 'Corpo da mensagem não encontrado no modelo.';
+
         // Monta a estrutura JSON esperada pelo front
         $response = [
             'name' => $modeloEncontrado['nome'],
             'components' => [
                 [
                     'type' => 'BODY',
-                    'text' => $modeloEncontrado['conteudo'],
+                    'text' => $textoBody,
                 ]
             ],
         ];

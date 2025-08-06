@@ -620,38 +620,30 @@ try {
                                 const bodyComponent = components.find(c => c.type === 'BODY');
                                 let templateText = bodyComponent?.text ?? 'Modelo sem corpo de mensagem.';
 
-                                if (vencida) {
-                                    // Se a fatura já venceu, só mostra o nome
-                                    // ⚠️ Substitui {{1}} sempre
-                                    templateText = templateText.replace('{{1}}', nome);
-
-                                    // Se não estiver vencida, preenche os demais
-                                    if (vencida) {
-                                        templateText = templateText
-                                            .replace('{{2}}', fatura)
-                                            .replace('{{3}}', valor)
-                                            .replace('{{4}}', formatarData(vencimento));
-                                    }
-
-                                } else {
-                                    // Para hoje ou datas futuras, preenche tudo
-                                    templateText = templateText
-                                        .replace('{{1}}', nome)
-                                        .replace('{{2}}', fatura)
-                                        .replace('{{3}}', valor)
-                                        .replace('{{4}}', formatarData(vencimento));
-                                }
-
+                                templateText = templateText
+                                    .replace('{{1}}', nome)
+                                    .replace('{{2}}', fatura)
+                                    .replace('{{3}}', valor)
+                                    .replace('{{4}}', formatarData(vencimento));
+                                
                                 msg = templateText;
                             }
 
-                            const safeHTML = document.createElement('div');
-                            safeHTML.innerText = msg;
-                            let formatted = safeHTML.innerHTML
-                                .replace(/\n/g, '<br>')
-                                .replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+                            const conteudoMensagem = document.getElementById('conteudo-mensagem');
+                            conteudoMensagem.innerHTML = '';
 
-                            document.getElementById('conteudo-mensagem').innerHTML = formatted;
+                            const parts = msg.split('*');
+                            parts.forEach((part, index) => {
+                                if (index % 2 === 1) {
+                                    const strong = document.createElement('strong');
+                                    strong.innerText = part;
+                                    conteudoMensagem.appendChild(strong);
+                                } else {
+                                    conteudoMensagem.appendChild(document.createTextNode(part));
+                                }
+                            });
+                            
+                            conteudoMensagem.style.whiteSpace = 'pre-wrap';
 
                             const modal = new bootstrap.Modal(document.getElementById('mensagemModal'));
                             modal.show();

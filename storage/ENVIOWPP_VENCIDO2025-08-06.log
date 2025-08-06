@@ -1,0 +1,432 @@
+[2025-08-06 14:37:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:37:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689392bdd1c506.05643639
+[2025-08-06 14:37:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:37:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:37:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:37:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:37:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:37:01] [WARNING] Execução abortada: outra instância do script já está em execução.
+[2025-08-06 14:38:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:38:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689392f9dfafe7.30678372
+[2025-08-06 14:38:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:38:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:38:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:38:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:38:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:38:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:38:01","expires_at":"2025-08-06 14:39:01","has_lock":"Sim"}
+[2025-08-06 14:38:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:38:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:38:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:38:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:38:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:38:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:38:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:38:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:38:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:38:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:38:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:38:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:38:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:38:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:38:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:38:01] [{"ID da Execu\u00e7\u00e3o":"exec_689392f9dfafe7.30678372","Tempo de Execu\u00e7\u00e3o":"0.02 segundos","R\u00e9guas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:38:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:38:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:39:02] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:39:02] [INFO] Iniciando execução do script de envio WPP. ID: exec_68939336058a36.50790612
+[2025-08-06 14:39:02] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:39:02] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:39:02] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:39:02] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:39:02] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:39:02] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:39:02","expires_at":"2025-08-06 14:40:02","has_lock":"Sim"}
+[2025-08-06 14:39:02] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:39:02] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:39:02] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:39:02] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:39:02] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:39:02] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:39:02] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:39:02] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:39:02] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:39:02] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:39:02] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:39:02] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:39:02] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:39:02] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:39:02] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:39:02] [{"ID da Execu\u00e7\u00e3o":"exec_68939336058a36.50790612","Tempo de Execu\u00e7\u00e3o":"0.02 segundos","R\u00e9guas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:39:02] [INFO] Bloqueio de script liberado
+[2025-08-06 14:39:02] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:40:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:40:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_68939371156fb4.54177716
+[2025-08-06 14:40:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:40:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:40:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:40:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:40:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:40:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:40:01","expires_at":"2025-08-06 14:41:01","has_lock":"Sim"}
+[2025-08-06 14:40:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:40:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:40:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:40:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:40:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:40:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:40:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:40:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:40:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:40:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:40:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:40:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:40:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:40:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:40:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:40:01] [{"ID da Execu\u00e7\u00e3o":"exec_68939371156fb4.54177716","Tempo de Execu\u00e7\u00e3o":"0.03 segundos","R\u00e9guas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:40:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:40:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:41:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:41:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689393ad26d535.79481687
+[2025-08-06 14:41:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:41:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:41:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:41:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:41:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:41:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:41:01","expires_at":"2025-08-06 14:42:01","has_lock":"Sim"}
+[2025-08-06 14:41:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:41:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:41:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:41:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:41:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:41:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:41:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:41:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:41:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:41:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:41:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:41:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:41:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:41:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:41:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:41:01] [{"ID da Execu\u00e7\u00e3o":"exec_689393ad26d535.79481687","Tempo de Execu\u00e7\u00e3o":"0.03 segundos","R\u00e9guas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:41:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:41:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:42:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:42:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689393e9367460.72891373
+[2025-08-06 14:42:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:42:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:42:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:42:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:42:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:42:01] [WARNING] Execução abortada: outra instância do script já está em execução.
+[2025-08-06 14:43:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:43:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_68939425472fa2.24006128
+[2025-08-06 14:43:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:43:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:43:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:43:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:43:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:43:01] [WARNING] Execução abortada: outra instância do script já está em execução.
+[2025-08-06 14:44:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:44:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_68939461599187.90183418
+[2025-08-06 14:44:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:44:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:44:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:44:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:44:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:44:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:44:01","expires_at":"2025-08-06 14:45:01","has_lock":"Sim"}
+[2025-08-06 14:44:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:44:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:44:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:44:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:44:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:44:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:44:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:44:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:44:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:44:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:44:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:44:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:44:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:44:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:44:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:44:01] [{"ID da Execucao":"exec_68939461599187.90183418","Tempo de Execucao":"0.02 segundos","Reguas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:44:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:44:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:45:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:45:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_6893949d683962.80977135
+[2025-08-06 14:45:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:45:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:45:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:45:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:45:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:45:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:45:01","expires_at":"2025-08-06 14:46:01","has_lock":"Sim"}
+[2025-08-06 14:45:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:45:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:45:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:45:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:45:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:45:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:45:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:45:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:45:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:45:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:45:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:45:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:45:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:45:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:45:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:45:01] [{"ID da Execucao":"exec_6893949d683962.80977135","Tempo de Execucao":"0.01 segundos","Reguas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:45:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:45:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:46:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:46:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689394d9773426.98705540
+[2025-08-06 14:46:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:46:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:46:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:46:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:46:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:46:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:46:01","expires_at":"2025-08-06 14:47:01","has_lock":"Sim"}
+[2025-08-06 14:46:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:46:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:46:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:46:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:46:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"13:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:46:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"13:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:46:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:46:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"13:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:46:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"13:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:46:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"13:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:46:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"13:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:46:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:10","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:46:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"13:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:46:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:46:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:46:01] [{"ID da Execucao":"exec_689394d9773426.98705540","Tempo de Execucao":"0.02 segundos","Reguas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:46:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:46:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:47:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:47:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689395158d3e37.02657324
+[2025-08-06 14:47:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:47:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:47:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:47:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:47:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:47:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:47:01","expires_at":"2025-08-06 14:48:01","has_lock":"Sim"}
+[2025-08-06 14:47:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:47:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:47:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:47:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:47:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"14:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"14:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"14:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"14:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"14:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"14:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:50","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"14:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:47:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:47:01] [{"ID da Execucao":"exec_689395158d3e37.02657324","Tempo de Execucao":"0.01 segundos","Reguas Processadas":0,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:47:01] [INFO] Nenhuma régua ativa estava dentro do horário de execução permitido.
+[2025-08-06 14:47:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:47:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:48:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:48:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689395519e87d1.63457034
+[2025-08-06 14:48:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:48:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:48:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:48:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:48:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:48:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:48:01","expires_at":"2025-08-06 14:49:01","has_lock":"Sim"}
+[2025-08-06 14:48:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:48:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:48:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:48:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:48:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"14:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"14:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"14:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"14:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"14:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"14:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:50","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"14:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:48:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:48:01] [{"ID da Execucao":"exec_689395519e87d1.63457034","Tempo de Execucao":"0.01 segundos","Reguas Processadas":0,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:48:01] [INFO] Nenhuma régua ativa estava dentro do horário de execução permitido.
+[2025-08-06 14:48:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:48:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:49:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:49:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_6893958da93136.39448777
+[2025-08-06 14:49:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:49:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:49:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:49:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:49:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:49:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:49:01","expires_at":"2025-08-06 14:50:01","has_lock":"Sim"}
+[2025-08-06 14:49:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:49:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:49:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:49:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:49:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"14:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"14:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"14:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"14:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"14:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"14:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:50","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"14:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:49:01] [INFO] Régua ignorada: fora da janela de horário (14:50 - 20:50).
+[2025-08-06 14:49:01] [{"ID da Execucao":"exec_6893958da93136.39448777","Tempo de Execucao":"0 segundos","Reguas Processadas":0,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:49:01] [INFO] Nenhuma régua ativa estava dentro do horário de execução permitido.
+[2025-08-06 14:49:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:49:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:50:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:50:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_689395c9b7b7a6.82354602
+[2025-08-06 14:50:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:50:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:50:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:50:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:50:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:50:01] [WARNING] Execução abortada: outra instância do script já está em execução.
+[2025-08-06 14:51:01] [INFO] Iniciando execução de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:51:01] [INFO] Iniciando execução do script de envio WPP. ID: exec_68939605c81c99.43245765
+[2025-08-06 14:51:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:51:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:51:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:51:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:51:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:51:01] [INFO] Verificação de bloqueio: {"acquired_at":"2025-08-06 14:51:01","expires_at":"2025-08-06 14:52:01","has_lock":"Sim"}
+[2025-08-06 14:51:01] [INFO] Registros antigos de ENVIOS_EM_ANDAMENTO (>10min) foram limpos
+[2025-08-06 14:51:01] [INFO] Verificações iniciais concluídas. O script pode continuar.
+[2025-08-06 14:51:01] [INFO] Iniciando busca por réguas de cobrança ativas...
+[2025-08-06 14:51:01] [INFO] 8 régua(s) ativa(s) encontrada(s).
+[2025-08-06 14:51:01] [{"id":35,"nome":"AVISO VENCIMENTO DAQUI A 5 DIAS","intervalo":5,"hora":"14:50","modelo_mensagem":"AVISO_FATURA_DAQUI_A_5_DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO DAQUI A 5 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua ignorada: o intervalo (5) indica fatura NÃO vencida.
+[2025-08-06 14:51:01] [{"id":36,"nome":"AVISO VENCIMENTO HOJE","intervalo":0,"hora":"14:50","modelo_mensagem":"VENCIMENTO_HOJE","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIMENTO HOJE'
+[2025-08-06 14:51:01] [INFO] Régua ignorada: o intervalo (0) indica fatura NÃO vencida.
+[2025-08-06 14:51:01] [{"id":37,"nome":"AVISO VENCIDO 5 DIAS","intervalo":-5,"hora":"14:50","modelo_mensagem":"VENCIDO 5 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 5 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 5 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -5 dia(s).
+[2025-08-06 14:51:01] [{"id":38,"nome":"AVISO VENCIDO 12 DIAS","intervalo":-12,"hora":"14:50","modelo_mensagem":"ATRASO 12 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 12 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 12 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -12 dia(s).
+[2025-08-06 14:51:01] [{"id":39,"nome":"AVISO VENCIDO 20 DIAS","intervalo":-20,"hora":"14:50","modelo_mensagem":"ATRASADO A 20 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 20 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 20 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -20 dia(s).
+[2025-08-06 14:51:01] [{"id":40,"nome":"AVISO VENCIDO 30 DIAS","intervalo":-30,"hora":"14:50","modelo_mensagem":"ATRASADO 30 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 30 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 30 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -30 dia(s).
+[2025-08-06 14:51:01] [{"id":41,"nome":"AVISO VENCIDO 42 DIAS","intervalo":-42,"hora":"14:50","modelo_mensagem":"ATRASADO 42 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 42 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 42 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -42 dia(s).
+[2025-08-06 14:51:01] [{"id":43,"nome":"AVISO VENCIDO 62 DIAS","intervalo":-62,"hora":"14:50","modelo_mensagem":"ATRASADO 62 DIAS","TIPO_DE_MODELO":"Wpp-Connect","Session_WPP":"WHATS"}] Analisando régua: 'AVISO VENCIDO 62 DIAS'
+[2025-08-06 14:51:01] [INFO] Régua 'AVISO VENCIDO 62 DIAS' selecionada para processamento!
+[2025-08-06 14:51:01] [INFO] Nenhuma fatura encontrada para o intervalo de -62 dia(s).
+[2025-08-06 14:51:01] [{"ID da Execucao":"exec_68939605c81c99.43245765","Tempo de Execucao":"0.01 segundos","Reguas Processadas":6,"Faturas Processadas":0,"Envios com Sucesso":0,"Envios com Falha":0}] ================ EXECUÇÃO FINALIZADA ================
+[2025-08-06 14:51:01] [INFO] Bloqueio de script liberado
+[2025-08-06 14:51:01] [INFO] Bloqueio do script liberado. Script finalizado.
+[2025-08-06 14:52:01] [INFO] Iniciando Execucao de ENVIOWPP_VENCIDO.php
+[2025-08-06 14:52:01] [INFO] Iniciando Execucao do script de envio WPP. ID: exec_68939641d902f8.35895076
+[2025-08-06 14:52:01] [INFO] Incluindo arquivos de configuração e API...
+[2025-08-06 14:52:01] [INFO] Arquivos incluídos com sucesso.
+[2025-08-06 14:52:01] [INFO] Conexão com o banco de dados verificada com sucesso.
+[2025-08-06 14:52:01] [INFO] Verificando e criando tabelas do sistema, se necessário...
+[2025-08-06 14:52:01] [INFO] Tabelas do sistema verificadas com sucesso.
+[2025-08-06 14:52:01] [WARNING] Execucao abortada: outra instância do script já está em Execucao.

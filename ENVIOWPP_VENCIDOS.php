@@ -10,9 +10,9 @@ error_reporting(E_ALL);
 // Define o fuso horário para São Paulo, Brasil, para garantir que as datas e horas sejam consistentes
 date_default_timezone_set('America/Sao_Paulo');
 
-// Gera um ID único para cada execução do script, facilitando o rastreamento nos logs
+// Gera um ID único para cada Execucao do script, facilitando o rastreamento nos logs
 $execId = uniqid('exec_', true);
-// Registra o tempo de início para calcular a duração total da execução
+// Registra o tempo de início para calcular a duração total da Execucao
 $tempoInicial = microtime(true);
 
 
@@ -34,7 +34,7 @@ function log_message($message, $level = 'INFO')
     file_put_contents(LOG_FILE, $log_entry, FILE_APPEND);
 }
 
-log_message("Iniciando execução de ENVIOWPP_VENCIDO.php", "INFO");
+log_message("Iniciando Execucao de ENVIOWPP_VENCIDO.php", "INFO");
 
 /**
  * Função de debug para imprimir mensagens formatadas.
@@ -71,8 +71,8 @@ $totalFaturasProcessadas = 0;
 $totalEnviosSucesso = 0;
 $totalEnviosFalha = 0;
 
-debug_print("Iniciando execução do script de envio WPP. ID: " . $execId);
-log_message("Iniciando execução do script de envio WPP. ID: " . $execId);
+debug_print("Iniciando Execucao do script de envio WPP. ID: " . $execId);
+log_message("Iniciando Execucao do script de envio WPP. ID: " . $execId);
 
 // =================================================================
 // ==================== INCLUSÃO DE DEPENDÊNCIAS ===================
@@ -90,7 +90,7 @@ try {
     // Se algum arquivo essencial não for encontrado, o script é interrompido
     debug_print("ERRO FATAL: Não foi possível incluir arquivos essenciais. " . $e->getMessage(), null, 'ERROR');
     log_message("ERRO FATAL: Não foi possível incluir arquivos essenciais. " . $e->getMessage(), 'ERROR');
-    die(); // Interrompe a execução
+    die(); // Interrompe a Execucao
 }
 
 // =================================================================
@@ -163,7 +163,7 @@ try {
 
 
 // =================================================================
-// =================== FUNÇÕES DE CONTROLE DE EXECUÇÃO =============
+// =================== FUNÇÕES DE CONTROLE DE Execucao =============
 // =================================================================
 
 /**
@@ -224,7 +224,7 @@ function acquireScriptLock($conn)
 }
 
 /**
- * Libera o "lock" do script no banco de dados ao final da execução.
+ * Libera o "lock" do script no banco de dados ao final da Execucao.
  *
  * @param PDO $conn Conexão com o banco de dados.
  */
@@ -272,7 +272,7 @@ function cleanupOldLocks($conn)
  *
  * @param PDO $conn Conexão com o banco de dados.
  * @param string $cdFatura O código da fatura.
- * @param string $execId O ID da execução atual do script.
+ * @param string $execId O ID da Execucao atual do script.
  * @return array Retorna se o envio pode ser feito e o motivo.
  */
 function verificarSeJaFoiEnviado($conn, $cdFatura, $execId)
@@ -291,7 +291,7 @@ function verificarSeJaFoiEnviado($conn, $cdFatura, $execId)
         $checkStmt->execute();
         $totalEnvios = (int)$checkStmt->fetchColumn();
 
-        if ($totalEnvios < 0) {
+        if ($totalEnvios > 0) {
             $conn->rollBack();
             return ['pode_enviar' => false, 'motivo' => 'Já enviado hoje ou em processamento'];
         }
@@ -387,36 +387,48 @@ function removerBloqueio($conn, $cdFatura)
 
 /**
  * Monta a mensagem final substituindo as variáveis (placeholders) pelos dados da fatura.
+ * ESTA FUNÇÃO FOI MODIFICADA PARA DECODIFICAR O JSON.
  *
  * @param PDO $conn Conexão com o banco de dados.
  * @param string $modeloMensagem O nome do modelo da mensagem.
  * @param array $fatura Os dados da fatura.
- * @return string A mensagem pronta para ser enviada.
+ * @return array|null Retorna um array com a estrutura da mensagem decodificada ou null em caso de erro.
  */
 function montarMensagem($conn, $modeloMensagem, $fatura)
 {
-    $nomeCliente = $fatura['NOME'];
-    $cdFatura = $fatura['CD_FATURA'];
-    $valor = number_format((float)$fatura['VALOR'], 2, ',', '.');
-    $vencimento = date('d/m/Y', strtotime($fatura['DATA_VENCIMENTO']));
-
+    // 1. Busca o modelo no banco de dados
     $buscar_modelo_msg = "SELECT conteudo FROM DBA_MODELOS_MSG WHERE nome = :modeloMensagem";
     $stmt = $conn->prepare($buscar_modelo_msg);
     $stmt->bindParam(':modeloMensagem', $modeloMensagem);
     $stmt->execute();
-    $modeloDados = $stmt->fetch(PDO::FETCH_ASSOC);
+    $modeloRow = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$modeloDados) {
-        throw new Exception("Modelo de mensagem '{$modeloMensagem}' não encontrado.");
+    if (!$modeloRow || empty($modeloRow['conteudo'])) {
+        throw new Exception("Modelo de mensagem '{$modeloMensagem}' não encontrado ou está vazio.");
     }
 
-    $mensagemModeloTexto = $modeloDados['conteudo'];
+    // 2. Decodifica a string JSON para um array associativo
+    $mensagemEstruturada = json_decode($modeloRow['conteudo'], true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        throw new Exception("Erro ao decodificar o JSON do modelo '{$modeloMensagem}': " . json_last_error_msg());
+    }
 
-    return str_replace(
-        ['{{1}}', '{{2}}', '{{3}}', '{{4}}'],
-        [$nomeCliente, $cdFatura, $valor, $vencimento],
-        $mensagemModeloTexto
-    );
+    // 3. Substitui as variáveis APENAS no corpo da mensagem
+    if (isset($mensagemEstruturada['body'])) {
+        $nomeCliente = $fatura['NOME'];
+        $cdFatura = $fatura['CD_FATURA'];
+        $valor = number_format((float)$fatura['VALOR'], 2, ',', '.');
+        $vencimento = date('d/m/Y', strtotime($fatura['DATA_VENCIMENTO']));
+
+        $mensagemEstruturada['body'] = str_replace(
+            ['{{1}}', '{{2}}', '{{3}}', '{{4}}'],
+            [$nomeCliente, $cdFatura, $valor, $vencimento],
+            $mensagemEstruturada['body']
+        );
+    }
+
+    // 4. Retorna a estrutura completa da mensagem
+    return $mensagemEstruturada;
 }
 
 /**
@@ -428,7 +440,7 @@ function montarMensagem($conn, $modeloMensagem, $fatura)
  * @param array $fatura Os dados da fatura.
  * @param string $telefone O número de telefone do destinatário.
  * @param string $mensagem O conteúdo da mensagem enviada.
- * @param string $execId O ID da execução atual.
+ * @param string $execId O ID da Execucao atual.
  * @param string $sessaoFinal A sessão utilizada para o envio.
  * @param string $modeloMensagem O nome do modelo de mensagem.
  * @return array Retorna um status de sucesso ou falha.
@@ -510,7 +522,7 @@ function processarResultadoEnvio($conn, $result, $fatura, $telefone, $mensagem, 
  * @param array $fatura Os dados da fatura.
  * @param string $telefone O número de telefone.
  * @param string $mensagem A mensagem a ser enviada.
- * @param string $execId O ID da execução.
+ * @param string $execId O ID da Execucao.
  * @param string $sessionWpp A sessão de WhatsApp especificada na régua.
  * @param string $modeloMensagem O nome do modelo de mensagem.
  * @return array Retorna o resultado final do envio.
@@ -561,8 +573,8 @@ function enviarMensagemComControleDeDuplicatas($conn, $fatura, $telefone, $mensa
 try {
     // Garante que o script não seja executado se já houver uma instância rodando
     if (!acquireScriptLock($conn)) {
-        debug_print("Execução abortada: outra instância do script já está em execução.", null, 'WARNING');
-        log_message("Execução abortada: outra instância do script já está em execução.", 'WARNING');
+        debug_print("Execucao abortada: outra instância do script já está em Execucao.", null, 'WARNING');
+        log_message("Execucao abortada: outra instância do script já está em Execucao.", 'WARNING');
         exit;
     }
 
@@ -572,8 +584,8 @@ try {
     // Verifica se é um dia útil (não executa em fins de semana)
     $diaSemana = date('w'); // 0 = Domingo, 6 = Sábado
     if ($diaSemana == 0 || $diaSemana == 6) {
-        debug_print("Execução abortada: envio desabilitado nos finais de semana.");
-        log_message("Execução abortada: envio desabilitado nos finais de semana.");
+        debug_print("Execucao abortada: envio desabilitado nos finais de semana.");
+        log_message("Execucao abortada: envio desabilitado nos finais de semana.");
         releaseScriptLock($conn);
         exit;
     }
@@ -598,8 +610,8 @@ try {
     ];
     $dataHoje = date('d/m/Y');
     if (in_array($dataHoje, $feriados)) {
-        debug_print("Execução abortada: envio desabilitado em feriados.");
-        log_message("Execução abortada: envio desabilitado em feriados.");
+        debug_print("Execucao abortada: envio desabilitado em feriados.");
+        log_message("Execucao abortada: envio desabilitado em feriados.");
         releaseScriptLock($conn);
         exit;
     }
@@ -622,7 +634,7 @@ try {
 
     // Busca todas as réguas que estão marcadas como "Ativo" no banco de dados
     $sqlReguas = "SELECT id, nome, intervalo, hora, modelo_mensagem, TIPO_DE_MODELO, Session_WPP 
-                  FROM REGUAS_CRIADAS WHERE status = 'Ativo'";
+                FROM REGUAS_CRIADAS WHERE status = 'Ativo'";
     $stmtReguas = $conn->query($sqlReguas);
     $reguasAtivas = $stmtReguas->fetchAll(PDO::FETCH_ASSOC);
 
@@ -665,7 +677,7 @@ try {
                 continue;
             }
 
-            // Define a janela de tempo para execução (hora da régua + 6 horas)
+            // Define a janela de tempo para Execucao (hora da régua + 6 horas)
             $inicioPermitido = DateTime::createFromFormat('H:i', $horaRegua);
             $fimPermitido = (clone $inicioPermitido)->add(new DateInterval('PT6H'));
             $currentTimeObj = DateTime::createFromFormat('H:i', $currentTime);
@@ -676,11 +688,10 @@ try {
                 log_message("Régua ignorada: fora da janela de horário ({$inicioPermitido->format('H:i')} - {$fimPermitido->format('H:i')}).");
                 continue;
             }
-
-            // Este script lida apenas com faturas vencidas ou vencendo hoje (intervalo >= 0)
-            if ($intervalo < 0) {
-                debug_print("Régua ignorada: o intervalo ({$intervalo}) é para faturas pré-vencimento.");
-                log_message("Régua ignorada: o intervalo ({$intervalo}) é para faturas pré-vencimento.");
+            // Este script lida apenas com faturas já vencidas (intervalo < 0)
+            if ($intervalo >= 0) {
+                debug_print("Régua ignorada: o intervalo ({$intervalo}) indica fatura NÃO vencida.");
+                log_message("Régua ignorada: o intervalo ({$intervalo}) indica fatura NÃO vencida.");
                 continue;
             }
 
@@ -715,19 +726,20 @@ try {
                     $cdFatura = $fatura['CD_FATURA'];
 
                     // Limpa e formata o número de telefone
-                    $telefone = preg_replace('/
-D/', '', $fatura['CELULAR']);
-                    if (substr($telefone, 0, 2) !== '55') $telefone = '55' . $telefone;
+                    $telefone = preg_replace('/[^0-9]/', '', $fatura['CELULAR']);
+                    if (substr($telefone, 0, 2) !== '55') {
+                        $telefone = '55' . $telefone;
+                    }
 
-                    // Monta a mensagem personalizada
-                    $mensagemFinal = montarMensagem($conn, $modeloMensagem, $fatura);
+                    // Monta a mensagem (agora retorna um array decodificado)
+                    $mensagemEstruturada = montarMensagem($conn, $modeloMensagem, $fatura);
 
                     // Envia a mensagem usando a função orquestradora
                     $resultadoEnvio = enviarMensagemComControleDeDuplicatas(
                         $conn,
                         $fatura,
                         $telefone,
-                        $mensagemFinal,
+                        $mensagemEstruturada, // Passa o array completo
                         $execId,
                         $Session_WPP,
                         $modeloMensagem
@@ -744,7 +756,7 @@ D/', '', $fatura['CELULAR']);
                     }
 
                     $contadorEnviosRégua++;
-                    if ($contadorEnviosRégua >= 50) { // Limite de envios por régua/execução
+                    if ($contadorEnviosRégua >= 50) { // Limite de envios por régua/Execucao
                         debug_print("Limite de 50 envios para a régua '{$regua['nome']}' atingido.", null, 'WARNING');
                         log_message("Limite de 50 envios para a régua '{$regua['nome']}' atingido.", 'WARNING');
                         break;
@@ -766,31 +778,31 @@ D/', '', $fatura['CELULAR']);
     }
 
     // =================================================================
-    // ==================== RELATÓRIO FINAL DA EXECUÇÃO ===============
+    // ==================== RELATÓRIO FINAL DA Execucao ===============
     // =================================================================
     $tempoFinal = microtime(true);
     $tempoExecucao = round($tempoFinal - $tempoInicial, 2);
 
-    debug_print("================ EXECUÇÃO FINALIZADA ================", [
-        'ID da Execução' => $execId,
-        'Tempo de Execução' => $tempoExecucao . ' segundos',
-        'Réguas Processadas' => $totalReguasProcessadas,
+    debug_print("================ Execucao FINALIZADA ================", [
+        'ID da Execucao' => $execId,
+        'Tempo de Execucao' => $tempoExecucao . ' segundos',
+        'Reguas Processadas' => $totalReguasProcessadas,
         'Faturas Processadas' => $totalFaturasProcessadas,
         'Envios com Sucesso' => $totalEnviosSucesso,
         'Envios com Falha' => $totalEnviosFalha
     ]);
-    log_message("================ EXECUÇÃO FINALIZADA ================", json_encode([
-        'ID da Execução' => $execId,
-        'Tempo de Execução' => $tempoExecucao . ' segundos',
-        'Réguas Processadas' => $totalReguasProcessadas,
+    log_message("================ Execucao FINALIZADA ================", json_encode([
+        'ID da Execucao' => $execId,
+        'Tempo de Execucao' => $tempoExecucao . ' segundos',
+        'Reguas Processadas' => $totalReguasProcessadas,
         'Faturas Processadas' => $totalFaturasProcessadas,
         'Envios com Sucesso' => $totalEnviosSucesso,
         'Envios com Falha' => $totalEnviosFalha
     ]));
 
     if ($reguasParaProcessar == 0) {
-        debug_print("Nenhuma régua ativa estava dentro do horário de execução permitido.");
-        log_message("Nenhuma régua ativa estava dentro do horário de execução permitido.");
+        debug_print("Nenhuma régua ativa estava dentro do horário de Execucao permitido.");
+        log_message("Nenhuma régua ativa estava dentro do horário de Execucao permitido.");
     }
 } catch (Exception $e) {
     debug_print("ERRO FATAL durante o processamento das réguas: " . $e->getMessage(), null, 'ERROR');
