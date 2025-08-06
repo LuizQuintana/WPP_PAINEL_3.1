@@ -13,21 +13,28 @@ $jobs = [
     [
         'name' => 'CONTRATOS_FATURA',
         'schedule' => '0 2 * * *',
-        'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/CONTRATOS_FATURA.php',
+        /*         'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/CONTRATOS_FATURA.php',
+ */
+        'script' => '/opt/lampp/htdocs/CONTRATOS_FATURA.php',
+
         'enabled' => true,
         'label' => 'Buscar Contratos e Faturas'
     ],
     [
         'name' => 'ENVIOWPP_AVISO',
         'schedule' => '*/10 * * * *',
-        'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/ENVIOWPP.php',
+        /*         'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/ENVIOWPP.php',
+ */
+        'script' => '/opt/lampp/htdocs/ENVIOWPP.php',
+
         'enabled' => true,
         'label' => 'Enviar Mensagens Aviso'
     ],
     [
         'name' => 'ENVIOWPP_VENCIDOS',
         'schedule' => '0 8 * * *',
-        'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/ENVIOWPP_VENCIDOS.php',
+        /*         'script' => '/opt/lampp/htdocs/WPP_PAINEL_3.1/ENVIOWPP_VENCIDOS.php', */
+        'script' => '/opt/lampp/htdocs/ENVIOWPP_VENCIDOS.php',
         'enabled' => true,
         'label' => 'Enviar Mensagens de Vencidos'
     ]
