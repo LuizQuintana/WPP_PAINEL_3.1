@@ -1,0 +1,208 @@
+/* assets/modelos.css */
+
+/* ESTILO GERAL DA PÁGINA */
+body {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+}
+
+.main-container {
+    padding: 1rem; /* Base padding for mobile */
+    width: 100%;
+    margin: auto;
+}
+
+/* TÍTULOS */
+h2 {
+    color: #ffffff;
+    font-weight: 600;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    display: inline-block;
+    font-size: 1.4rem; /* Adjusted for mobile */
+}
+
+/* CARD PRINCIPAL (PARA TABELA E FORMULÁRIO) */
+.card {
+    background-color: #2a2a3d;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #f0f0f0;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #3a3a4d;
+    font-weight: bold;
+    border-bottom: 1px solid #4a4a5a;
+    padding: 1rem;
+}
+
+#lista-modelos-container .card-body {
+    padding: 0;
+}
+
+#form-modelo-container .card-body {
+    padding: 1rem;
+}
+
+/* TABELA DE MODELOS */
+.table-responsive {
+    overflow-x: auto;
+}
+
+#lista-modelos-container .table {
+    color: #e0e0e0;
+    background-color: #2a2a3d;
+    margin-bottom: 0;
+    min-width: 700px; /* Force scroll on smaller screens */
+}
+
+#lista-modelos-container .table thead th {
+    color: #ffffff;
+    background-color: #3a3a4d;
+    border-bottom: 2px solid #4a4a5a;
+    padding: 1rem;
+}
+
+#lista-modelos-container .table tbody tr:hover {
+    background-color: #3a3a4d;
+    color: #ffffff;
+}
+
+#lista-modelos-container .table td,
+#lista-modelos-container .table th {
+    border-top: none;
+    border-bottom: 1px solid #40405a;
+    padding: 1rem;
+}
+
+#lista-modelos-container .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* FORMULÁRIO DE CRIAÇÃO/EDIÇÃO */
+#form-modelo-container {
+    display: none;
+}
+
+#form-modelo-container .form-label {
+    color: #bbbbbb;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+#form-modelo-container .form-control,
+#form-modelo-container .form-select {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    border: 1px solid #40405a;
+    border-radius: 5px;
+}
+
+#form-modelo-container .form-control:focus,
+#form-modelo-container .form-select:focus {
+    background-color: #252537;
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* EDITOR DE TEXTO RICO */
+.rich-text-editor {
+    min-height: 150px;
+    border: 1px solid #40405a;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+}
+.rich-text-editor:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.editor-toolbar {
+    margin-bottom: 10px;
+    background-color: #3a3a4d;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap; /* Allow toolbar buttons to wrap */
+    gap: 5px;
+}
+
+.editor-toolbar .btn {
+    background-color: #2a2a3d;
+    color: #f0f0f0;
+    border: 1px solid #40405a;
+}
+
+/* OPÇÕES DA LISTA (AÇÃO) */
+.list-option-item {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+    background-color: #1e1e2f;
+    border-radius: 5px;
+}
+
+/* ESTILOS PARA O MODAL DE SELEÇÃO DE TEMPLATE */
+.modal-content {
+    background-color: #2a2a3d;
+    color: #f0f0f0;
+    border: 1px solid #40405a;
+}
+
+.modal-header {
+    border-bottom-color: #40405a;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-body .list-group-item {
+    background-color: #1e1e2f;
+    border-color: #40405a;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.modal-body .list-group-item:hover {
+    background-color: #3a3a4d;
+    color: #ffffff;
+}
+
+.modal-body .list-group-item strong {
+    color: #3498db;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .main-container, #form-modelo-container .card-body {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .list-option-item {
+        flex-direction: row; /* Horizontal on larger screens */
+        align-items: center;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .main-container {
+        max-width: 1200px;
+    }
+}
+

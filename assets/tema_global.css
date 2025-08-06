@@ -1,0 +1,111 @@
+/* --- Tema Global Unificado e Responsivo --- */
+
+:root {
+    --bg-main: #1e1e2f;      /* Fundo principal e de painéis */
+    --bg-item: #2a2a3d;      /* Fundo para itens e hover */
+    --text-main: #f0f0f0;     /* Texto principal */
+    --accent-color: #3498db;  /* Cor de destaque para links e botões */
+    --border-color: #3a3a4d;  /* Cor sutil para bordas */
+}
+
+html {
+    font-size: 100%; /* Base para o cálculo de rem */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem; /* 16px */
+}
+
+/* Layout Principal - Mobile First */
+.main-content, .main-container {
+    width: 80%;
+    margin-left: 0;
+    padding: 1rem; /* Padding base para mobile */
+    transition: margin-left 0.3s ease;
+}
+
+/* Cards e Painéis */
+.card {
+    background-color: var(--bg-item);
+    border: none;
+    border-radius: 12px;
+    box-shadow: none;
+    color: var(--text-main);
+}
+
+.card-header, .modal-header {
+    background-color: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Tabelas */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: #252537;
+    --bs-table-hover-bg: var(--bg-item);
+    --bs-table-border-color: var(--border-color);
+    --bs-table-color: var(--text-main);
+    --bs-table-hover-color: #ffffff;
+}
+
+.table th {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Formulários */
+.form-control, .form-select {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: var(--bg-main);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+    color: var(--text-main);
+}
+
+/* Botões */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+}
+
+a:hover {
+    color: #5dade2;
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .main-content, .main-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Desktop (quando a sidebar aparece) */
+@media (min-width: 992px) {
+    .main-content, .main-container {
+        margin-left: 260px; /* Largura exata da sidebar */
+        padding: 2rem;
+    }
+}
+

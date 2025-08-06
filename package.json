@@ -1,0 +1,13 @@
+{
+  "name": "wpp_painel",
+  "version": "1.0.0",
+  "description": "Painel de gerenciamento WPPConnect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}

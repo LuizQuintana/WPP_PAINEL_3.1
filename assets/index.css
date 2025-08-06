@@ -1,0 +1,170 @@
+/* Estilo geral do corpo */
+body {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+}
+
+/* Contêiner principal */
+#container {
+    padding: 1rem; /* Base padding for mobile */
+}
+.main-content{
+margin-left: 0px !important;
+}
+.conteudos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100% !important;
+float: rigth;
+}
+
+/* Seção geral das réguas */
+#reguas_geral {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+width: 80% !important;
+}
+
+/* Estilo das seções de régua */
+#regua,
+#regua_criar {
+    background-color: #2a2a3d;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos das seções */
+.reguas p {
+    font-size: 1.4rem; /* Adjusted for mobile */
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffffff;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Carrossel */
+#carouselReguas {
+    position: relative;
+    padding-bottom: 70px; /* Espaço para os botões abaixo */
+}
+
+#carouselReguas .carousel-inner {
+    padding: 15px 0;
+}
+
+#carouselReguas .card {
+    background-color: #3a3a4d;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure cards have same height */
+}
+
+#carouselReguas .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.card-text strong {
+    color: #bbbbbb;
+}
+
+/* Controles do carrossel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 45px !important;
+    height: 45px !important;
+    background-color: rgba(52, 152, 219, 0.7) !important;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px; /* Position at the bottom of the relative container */
+    top: 90% !important;
+    transform: translateY(0);
+}
+
+.carousel-control-prev {
+    left: calc(50% - 50px); /* Position left of center */
+}
+
+.carousel-control-next {
+    right: calc(50% - 50px); /* Position right of center */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(52, 152, 219, 1) !important;
+}
+
+/* Formulário de criação */
+#regua_criar form {
+    max-width: 100%;
+}
+
+/* Modal de edição */
+.modal-content {
+    background-color: #2a2a3d;
+    color: #f0f0f0;
+    border-radius: 12px;
+}
+
+.modal-content .form-control,
+.modal-content .form-select {
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    border-color: #555;
+}
+
+.modal-content .form-control:focus,
+.modal-content .form-select:focus {
+    background-color: #252537;
+    border-color: #3498db;
+    box-shadow: none;
+}
+
+.card-body {
+    color: #f0f0f0 !important;
+}
+
+h4 {
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    font-weight: bold !important;
+    font-size: 22px !important;
+    color: #3498db !important;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .conteudos {
+        flex-direction: row; /* Side-by-side layout for larger screens */
+    }
+
+    #regua, #regua_criar {
+        flex: 1;
+    }
+
+    .reguas p {
+        font-size: 1.6rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .conteudos {
+        margin-left: 14%; /* Re-apply margin for desktop sidebar */
+        width: 86%;
+    }
+}
+

@@ -1,0 +1,112 @@
+/* assets/modelos_menu.css */
+
+#container {
+    padding: 1rem; /* Base padding for mobile */
+}
+
+.form-container-centralized {
+    background-color: #343a40;
+    padding: 1rem;
+    border-radius: 8px;
+    color: white;
+    margin-left: 0; /* No margin on mobile */
+    width: 100%;
+}
+
+.form-container-centralized h2 {
+    border-bottom: 1px solid #495057;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.4rem; /* Adjusted for mobile */
+}
+
+.form-container-centralized label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-container-centralized input[type="text"],
+.form-container-centralized textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #495057;
+    border: 1px solid #6c757d;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column; /* Stack on mobile */
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: stretch;
+}
+
+.menu-item input {
+    flex: 1;
+}
+
+.menu-item button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 10px; /* Larger touch target */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary, .btn-secondary, .btn-success {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.btn-primary { background-color: #007bff; border-color: #007bff; }
+.btn-secondary { background-color: #6c757d; border-color: #6c757d; }
+.btn-success { background-color: #28a745; border-color: #28a745; }
+
+.msg {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet */
+@media (min-width: 768px) {
+    .form-container-centralized {
+        padding: 20px;
+    }
+
+    .form-container-centralized h2 {
+        font-size: 1.8rem;
+    }
+
+    .menu-item {
+        flex-direction: row; /* Horizontal layout for menu items */
+        align-items: center;
+    }
+
+    .menu-item button {
+        padding: 5px 10px; /* Revert padding */
+    }
+
+    .btn-primary, .btn-secondary, .btn-success {
+        width: auto; /* Auto width for buttons */
+        margin-bottom: 0;
+    }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .form-container-centralized {
+        margin-left: 15%; /* Re-apply margin for desktop */
+        width: 85%;
+    }
+}
