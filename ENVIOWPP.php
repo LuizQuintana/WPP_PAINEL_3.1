@@ -703,9 +703,19 @@ try {
             log_message("Régua '{$regua['nome']}' selecionada para processamento!");
 
             // Busca as faturas que correspondem ao critério de intervalo de dias da régua
-            $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
+            /*             $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
                            FROM FATURAS_A_VENCER
-                           WHERE ENVIADO = 'NAO' AND DATEDIFF(CURDATE(), DATA_VENCIMENTO) = :intervalo";
+                           WHERE ENVIADO = 'NAO' AND DATEDIFF(CURDATE(), DATA_VENCIMENTO) = :intervalo"; */
+
+
+
+            $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
+               FROM FATURAS_A_VENCER
+               WHERE ENVIADO = 'NAO'
+               AND DATEDIFF(DATA_VENCIMENTO, CURDATE()) = :intervalo";
+
+
+
             $stmtFaturas = $conn->prepare($sqlFaturas);
             $stmtFaturas->bindParam(':intervalo', $intervalo, PDO::PARAM_INT);
             $stmtFaturas->execute();
