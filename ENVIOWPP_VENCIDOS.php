@@ -657,7 +657,7 @@ try {
             log_message("Analisando régua: '{$regua['nome']}'", json_encode($regua));
 
             // Extrai os dados da régua
-            $intervalo = (int)$regua['intervalo'];
+            $intervalo = ((int)$regua['intervalo']); // Usa abs() para garantir que o intervalo seja sempre positivo
             $horaRegua = substr($regua['hora'], 0, 5);
             $modeloMensagem = $regua['modelo_mensagem'];
             $GatewayEnvio = $regua['TIPO_DE_MODELO'];
@@ -701,12 +701,24 @@ try {
             log_message("Régua '{$regua['nome']}' selecionada para processamento!");
 
             // Busca as faturas que correspondem ao critério de intervalo de dias da régua
-            $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
+            /*             $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
                            FROM FATURAS_A_VENCER
                            WHERE ENVIADO = 'NAO' AND DATEDIFF(CURDATE(), DATA_VENCIMENTO) = :intervalo";
             $stmtFaturas = $conn->prepare($sqlFaturas);
             $stmtFaturas->bindParam(':intervalo', $intervalo, PDO::PARAM_INT);
+            $stmtFaturas->execute(); */
+
+
+            $sqlFaturas = "SELECT ID, NOME, CELULAR, CD_FATURA, VALOR, DATA_VENCIMENTO
+               FROM FATURAS_A_VENCER
+               WHERE ENVIADO = 'NAO'
+               AND DATEDIFF(DATA_VENCIMENTO, CURDATE()) = :intervalo";
+
+            $stmtFaturas = $conn->prepare($sqlFaturas);
+            $stmtFaturas->bindParam(':intervalo', $intervalo, PDO::PARAM_INT); // valor negativo direto
             $stmtFaturas->execute();
+
+
             $faturas = $stmtFaturas->fetchAll(PDO::FETCH_ASSOC);
 
             if (!$faturas) {
